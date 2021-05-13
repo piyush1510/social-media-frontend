@@ -1,16 +1,32 @@
+import axios from 'axios';
 import React, {Component} from 'react';
+import Cookies from 'universal-cookie';
 import Card from '../components/Card';
 export default class Home extends Component {
+  constructor(props){
+    super(props)
+    this.state={posts:[],user:null};
+  }
+  componentDidMount(){
+    const cookies = new Cookies();
+    const token = cookies.get('token')
+    if(token){
+      axios.get('http://localhost:5000/posts',{
+        headers:{'authorization':"Bearer "+token}
+      }).then(res=>{
+        this.setState({posts:res.data.posts,user:res.data.user})
+      }).catch(err=>{
+        console.log(err.message);
+      })
+    }
+  }
+  createCards =()=>{
+    return this.state.posts.map(ele=><Card title={ele.title} para={ele.content} imgLink={ele.image_link}/>)
+  }
   render() {
     return (
       <div className="Home">
-        <Card imgLink="https://picsum.photos/400/400" likes="3" title="title 1" para="Sunt veniam adipisicing culpa proident ex adipisicing et enim sint eu dolore. Proident quis aliqua id sunt et in nostrud. Voluptate duis ad consequat nulla nisi ut occaecat eiusmod ex labore aute Lorem. Labore non labore culpa aliquip anim. Non ad mollit aliqua ipsum officia laborum officia anim adipisicing eiusmod."/>
-        <Card imgLink="https://picsum.photos/700/400" likes="3" title="title 2" para="Sunt veniam adipisicing culpa proident ex adipisicing et enim sint eu dolore. Proident quis aliqua id sunt et in nostrud. Voluptate duis ad consequat nulla nisi ut occaecat eiusmod ex labore aute Lorem. Labore non labore culpa aliquip anim. Non ad mollit aliqua ipsum officia laborum officia anim adipisicing eiusmod."/>
-        <Card imgLink="https://picsum.photos/900/400" likes="3" title="title 3" para="Sunt veniam adipisicing culpa proident ex adipisicing et enim sint eu dolore. Proident quis aliqua id sunt et in nostrud. Voluptate duis ad consequat nulla nisi ut occaecat eiusmod ex labore aute Lorem. Labore non labore culpa aliquip anim. Non ad mollit aliqua ipsum officia laborum officia anim adipisicing eiusmod."/>
-        <Card imgLink="https://picsum.photos/600/400" likes="3" title="title 4" para="Sunt veniam adipisicing culpa proident ex adipisicing et enim sint eu dolore. Proident quis aliqua id sunt et in nostrud. Voluptate duis ad consequat nulla nisi ut occaecat eiusmod ex labore aute Lorem. Labore non labore culpa aliquip anim. Non ad mollit aliqua ipsum officia laborum officia anim adipisicing eiusmod."/>
-        <Card imgLink="https://picsum.photos/600/500" likes="3" title="title 4" para="Sunt veniam adipisicing culpa proident ex adipisicing et enim sint eu dolore. Proident quis aliqua id sunt et in nostrud. Voluptate duis ad consequat nulla nisi ut occaecat eiusmod ex labore aute Lorem. Labore non labore culpa aliquip anim. Non ad mollit aliqua ipsum officia laborum officia anim adipisicing eiusmod."/>
-        <Card imgLink="https://picsum.photos/800/400" likes="3" title="title 4" para="Sunt veniam adipisicing culpa proident ex adipisicing et enim sint eu dolore. Proident quis aliqua id sunt et in nostrud. Voluptate duis ad consequat nulla nisi ut occaecat eiusmod ex labore aute Lorem. Labore non labore culpa aliquip anim. Non ad mollit aliqua ipsum officia laborum officia anim adipisicing eiusmod."/>
-        <Card imgLink="https://picsum.photos/700/500" likes="3" title="title 4" para="Sunt veniam adipisicing culpa proident ex adipisicing et enim sint eu dolore. Proident quis aliqua id sunt et in nostrud. Voluptate duis ad consequat nulla nisi ut occaecat eiusmod ex labore aute Lorem. Labore non labore culpa aliquip anim. Non ad mollit aliqua ipsum officia laborum officia anim adipisicing eiusmod."/>
+        {this.createCards()}
       </div>
     );
   }

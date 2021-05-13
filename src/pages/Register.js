@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 export default class Register extends Component {
   constructor(props) {
     super(props);
-    this.state = {email: '', password: '',password: '',loggedIn: false};
+    this.state = {email: '', password: '',confirmPassword: '',loggedIn: false};
   }
   handleChange = (e) => {
     this.setState({[e.target.name]: e.target.value});
@@ -42,11 +42,11 @@ export default class Register extends Component {
               required
             />
             <br />
-            <label htmlFor="confirm password">confirm password</label>
+            <label htmlFor="confirmPassword">confirm password</label>
             <br />
             <input
               onChange={this.handleChange}
-              name="confirm password"
+              name="confirmPassword"
               type="password"
               placeholder="confirm password"
               required
@@ -55,7 +55,7 @@ export default class Register extends Component {
             <button type="submit">
               submit <CgLogIn />{' '}
             </button>
-            <div class="form-ques">
+            <div className="form-ques">
               <p>
                 already have an account ?
                 <br/><Link to="/login">login here</Link>

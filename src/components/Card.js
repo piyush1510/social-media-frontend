@@ -28,7 +28,8 @@ export default class Card extends Component {
           <img
             onLoad={this.loadHandler}
             style={{display: this.state.loading ? 'none' : 'block'}}
-            src={this.props.imgLink}
+            src={"http://localhost:5000/"+this.props.imgLink}
+            alt={this.props.title}
           />
           {this.state.loading ? <Spinner /> : <></>}
         </div>
