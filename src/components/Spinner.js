@@ -1,9 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-export default function Spinner() {
-    return (
-        <div className="spinner">
-            
-        </div>
-    )
+export default function Spinner(props) {
+  const radius = props.radius;
+  return <div className="spinner" style={radius?{width:radius,height:radius}:{}}></div>;
 }

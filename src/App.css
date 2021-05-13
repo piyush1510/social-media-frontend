@@ -6,12 +6,28 @@
   justify-content: center;
   align-items: center;
 }
-.active{
+.active {
   color: crimson !important;
+}
+header {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 100%;
+  margin: 0;
+  background-image: linear-gradient(45deg, rgb(37, 6, 46) 0%, rgb(37, 6, 46) 28%,rgb(66, 27, 59) 28%, rgb(66, 27, 59) 31%,rgb(96, 48, 72) 31%, rgb(96, 48, 72) 59%,rgb(125, 69, 85) 59%, rgb(125, 69, 85) 66%,rgb(154, 90, 97) 66%, rgb(154, 90, 97) 68%,rgb(184, 111, 110) 68%, rgb(184, 111, 110) 94%,rgb(213, 132, 123) 94%, rgb(213, 132, 123) 100%),linear-gradient(112.5deg, rgb(37, 6, 46) 0%, rgb(37, 6, 46) 28%,rgb(66, 27, 59) 28%, rgb(66, 27, 59) 31%,rgb(96, 48, 72) 31%, rgb(96, 48, 72) 59%,rgb(125, 69, 85) 59%, rgb(125, 69, 85) 66%,rgb(154, 90, 97) 66%, rgb(154, 90, 97) 68%,rgb(184, 111, 110) 68%, rgb(184, 111, 110) 94%,rgb(213, 132, 123) 94%, rgb(213, 132, 123) 100%),linear-gradient(90deg, rgb(37, 6, 46) 0%, rgb(37, 6, 46) 28%,rgb(66, 27, 59) 28%, rgb(66, 27, 59) 31%,rgb(96, 48, 72) 31%, rgb(96, 48, 72) 59%,rgb(125, 69, 85) 59%, rgb(125, 69, 85) 66%,rgb(154, 90, 97) 66%, rgb(154, 90, 97) 68%,rgb(184, 111, 110) 68%, rgb(184, 111, 110) 94%,rgb(213, 132, 123) 94%, rgb(213, 132, 123) 100%),linear-gradient(135deg, rgb(37, 6, 46) 0%, rgb(37, 6, 46) 28%,rgb(66, 27, 59) 28%, rgb(66, 27, 59) 31%,rgb(96, 48, 72) 31%, rgb(96, 48, 72) 59%,rgb(125, 69, 85) 59%, rgb(125, 69, 85) 66%,rgb(154, 90, 97) 66%, rgb(154, 90, 97) 68%,rgb(184, 111, 110) 68%, rgb(184, 111, 110) 94%,rgb(213, 132, 123) 94%, rgb(213, 132, 123) 100%),linear-gradient(90deg, rgb(100, 205, 26),rgb(46, 36, 113)); background-blend-mode:overlay,overlay,overlay,overlay,normal;
+}
+.logo-img {background-color: crimson;
+  height: 50px;
+  padding: 5px;
+  border-radius: 50%;
+  right: 10px;
 }
 .Nav {
   position: fixed;
-  top: 0;
+  top: 30px;
   left: 0;
   display: flex;
   justify-content: center;
@@ -28,20 +44,25 @@
 .Nav > a:hover {
   color: crimson;
 }
-.nav-img {
-  background: crimson;
-  width: 100px;
-  position: absolute;
-  top: 0px;
-  border-radius: 50%;
-  padding: 10px;
-  left: 0px;
+
+.Nav button {
+  background-color: transparent;
+  color: crimson;
+  border: 2px solid crimson;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.5s, color 0.5s;
+}
+.Nav button:hover {
+  background-color: crimson;
+  color: white;
 }
 .screen {
   background-color: rgb(27, 27, 27);
-  margin-top: 40px;
+  margin-top: 70px;
   width: 80%;
-  height: 85%;
+  height: 80%;
   box-shadow: 10px 10px 20px rgb(20, 20, 20);
   position: fixed;
   border-radius: 10px;
@@ -145,19 +166,30 @@
   color: white;
   cursor: pointer;
 }
+.error-login {
+  font-size: 12px;
+  color: crimson;
+}
+.success{
+  font-size: 12px;
+  color: green;
+}
+.hidden {
+  display: none;
+}
 .form input[type='file']::-webkit-file-upload-button:hover {
   background-color: rgb(202, 20, 57);
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.274);
 }
-.form-ques{
+.form-ques {
   margin-top: 10px;
   font-size: 14px;
   margin-bottom: -10px;
 }
-.form-ques a{
+.form-ques a {
   color: crimson;
 }
-.form-ques a:hover{
+.form-ques a:hover {
   color: rgb(235, 94, 122);
 }
 .Home {

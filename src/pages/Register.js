@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {CgLogIn} from 'react-icons/cg';
-import {Redirect} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import Cookies from 'universal-cookie'
 import axios from 'axios'

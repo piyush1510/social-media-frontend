@@ -1,6 +1,5 @@
 import {Route} from 'react-router-dom';
 import Register from './pages/Register'
-import Nav from './components/Nav'
 import './App.css';
 import Login from './pages/Login';
 import Create from './pages/Create';

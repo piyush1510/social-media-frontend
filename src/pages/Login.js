@@ -9,7 +9,7 @@ import Nav from '../components/Nav'
 export default class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = {email: '', password: '', loggedIn: false};
+    this.state = {email: '', password: '', loggedIn: false,loginFail:false};
   }
   handleChange = (e) => {
     this.setState({[e.target.name]: e.target.value});
@@ -22,7 +22,7 @@ export default class Login extends Component {
       this.setState({loggedIn:true})
     })
     .catch(err=>{
-      console.log(err.message);
+      this.setState({loginFail:true})
     })
   };
   render() {
@@ -33,6 +33,9 @@ export default class Login extends Component {
         <div className="form login">
           <form onSubmit={this.handleSubmit}>
             <h1>Login</h1>
+            <p className={"error-login" + (this.state.loginFail?'':' hidden')}>
+              * username or password is incorrect
+            </p>
             <label htmlFor="email">email</label>
             <br />
             <input
