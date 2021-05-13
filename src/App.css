@@ -10,8 +10,9 @@
   color: crimson !important;
 }
 .Nav {
-  position: absolute;
+  position: fixed;
   top: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -117,7 +118,6 @@
 }
 .form button[type='submit'] {
   display: flex;
-  justify-content: end;
   align-items: center;
   background-color: transparent;
   cursor: pointer;

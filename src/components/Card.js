@@ -19,7 +19,7 @@ export default class Card extends Component {
       <div className="Card">
         <div className="upper-part">
           <img
-            src="http://bestprofilepix.com/wp-content/uploads/2014/03/sad-and-alone-boys-facebook-profile-pictures.jpg"
+            src={"http://localhost:5000/"+this.props.profilePic}
             alt="yo"
           />
           <h2>{this.props.title}</h2>

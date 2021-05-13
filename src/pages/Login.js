@@ -3,7 +3,8 @@ import React, {Component} from 'react';
 import {CgLogIn} from 'react-icons/cg';
 import {Redirect} from 'react-router';
 import {Link} from 'react-router-dom';
-import Cookies from 'universal-cookie'
+import Cookies from 'universal-cookie';
+import Nav from '../components/Nav'
 
 export default class Login extends Component {
   constructor(props) {
@@ -27,6 +28,8 @@ export default class Login extends Component {
   render() {
     if (!this.state.loggedIn) {
       return (
+        <>
+        <Nav loggedIn={false}/>
         <div className="form login">
           <form onSubmit={this.handleSubmit}>
             <h1>Login</h1>
@@ -60,6 +63,7 @@ export default class Login extends Component {
             </div>
           </form>
         </div>
+        </>
       );
     } else {
       return <Redirect exact to="/" />;

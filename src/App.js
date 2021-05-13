@@ -10,7 +10,6 @@ import Home from './pages/Home'
 function App() {
   return (
     <div className="App">
-      <Nav/>
       <div className="screen">
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />

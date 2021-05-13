@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import {BsUpload} from 'react-icons/bs';
 import {Redirect} from 'react-router';
 import Cookies from 'universal-cookie';
+import Nav from '../components/Nav'
 
 export default class Create extends Component {
   constructor(props) {
@@ -33,6 +34,8 @@ export default class Create extends Component {
   };
   render() {
     return (
+      <>
+      <Nav loggedIn={true} />
       <div className="form">
         <form onSubmit={this.handleSubmit}>
           <h1>Create</h1>
@@ -70,7 +73,7 @@ export default class Create extends Component {
             upload <BsUpload />{' '}
           </button>
         </form>
-      </div>
+      </div></>
     );
   }
 }
