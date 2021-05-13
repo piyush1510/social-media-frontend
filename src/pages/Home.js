@@ -14,6 +14,7 @@ export default class Home extends Component {
       axios.get('http://localhost:5000/posts',{
         headers:{'authorization':"Bearer "+token}
       }).then(res=>{
+        console.log(res.data.posts)
         this.setState({posts:res.data.posts,user:res.data.user})
       }).catch(err=>{
         console.log(err.message);
@@ -21,7 +22,7 @@ export default class Home extends Component {
     }
   }
   createCards =()=>{
-    return this.state.posts.map(ele=><Card title={ele.title} para={ele.content} imgLink={ele.image_link}/>)
+    return this.state.posts.map(ele=><Card title={ele.title} para={ele.content} imgLink={ele.image_link} time={ele.created_on} key={"p"+ele.id}/>)
   }
   render() {
     return (

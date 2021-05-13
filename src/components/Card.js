@@ -34,7 +34,7 @@ export default class Card extends Component {
           {this.state.loading ? <Spinner /> : <></>}
         </div>
         <div className="lower-up-part">
-          <p>{new Date().toDateString()}</p>
+          <p>{new Date(this.props.time).toDateString()}</p>
           <div className="likes">
             <button className="like-button" onClick={this.likeButtonClick}>
               <BiLike />
